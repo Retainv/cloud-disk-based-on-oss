@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.retain.nd.mapper.IFileMapper">
+
+    <select id="listFilePrefix"  resultType="top.retain.nd.entity.UserFile">
+        select * from file where user_id = #{userId}  and deleted = false and in_safe = false and parent_id = (select id from file where user_id = #{userId} and deleted = false and is_dir = true and oss_path = #{prefix});
+    </select>
+
+    <select id="listRootFiles" resultType="top.retain.nd.entity.UserFile">
+        select * from file where user_id = #{userId} and in_safe = false and parent_id = -1 and deleted = false;
+    </select>
+    <select id="getParentDirByPath" resultType="top.retain.nd.entity.UserFile">
+        select * from file where user_id = #{userId} and deleted = false and oss_path = #{prefix} ;
+    </select>
+    <select id="getFileByPath" resultType="top.retain.nd.entity.UserFile">
+        select * from file where user_id = #{userId} and deleted = false and oss_path = #{ossPath};
+    </select>
+
+    <select id="getDeletedFileByPath" resultType="top.retain.nd.entity.UserFile">
+        select * from file where user_id = #{userId} and deleted = true and oss_path = #{ossPath};
+    </select>
+    <select id="getChildFilesById" resultType="top.retain.nd.entity.UserFile">
+        select * from file where user_id = #{userId} and parent_id = #{parentId};
+    </select>
+</mapper>

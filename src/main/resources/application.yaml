@@ -1,0 +1,74 @@
+spring:
+  profiles:
+    active: prod
+#  resources:
+#    add-mappings: false
+  mvc:
+    throw-exception-if-no-handler-found: true
+    converters:
+      preferred-json-mapper: jackson
+    static-path-pattern: /static/**
+  # 数据库初始化配置
+  datasource:
+    schema: classpath:sql/schema.sql
+    data: classpath:sql/data.sql
+    initialization-mode: never
+    dbcp2:
+      test-on-borrow: true
+      test-while-idle: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 1GB
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: off
+  redis:
+    password: *
+    lettuce:
+      shutdown-timeout: 500000
+
+    port: 6379
+server:
+  port: 8808
+mybatis-plus:
+  mapper-locations: top/retain/nd/mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+user:
+  init-space: 21474836480 # 默认20G，可手动配置，注册时自动读取
+logging:
+  level:
+    root: info
+OSS:
+  ram:
+    accessKeyId: *
+    accessKeySecret: *
+    roleArn: *
+  endpoint: *
+  accessKeyId: *
+  accessKeySecret: *
+  region: *
+    #bucket可以在控制台创建，也可以使用java代码创建
+
+---
+spring:
+  profiles: dev
+  redis:
+    host: *
+  datasource:
+    url: jdbc:mysql://localhost:3306/network_disk?serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: qwer
+---
+spring:
+  profiles: prod
+  redis:
+    host: *
+  datasource:
+    url: jdbc:mysql://*:3306/network_disk?serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: *
+    password: *
