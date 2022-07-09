@@ -1,11 +1,31 @@
 # network-disk
 
 #### 介绍
-结合阿里云OSS对象存储，实现的公有云网盘（仅供个人学习使用）
+结合阿里云OSS对象存储，实现的公有云网盘（仅供个人学习使用），目前个人自用体验良好。
 
 #### 软件架构
 此为后端项目，后端技术栈：SpringBoot+MybatisPlus+Redis+SpringSecurity+腾讯云短信服务+阿里云OSS
-在线预览使用开源kkfileview
+在线预览使用开源kkfileview。
+
+#### 部分截图
+
+![image-20220709214033659](http://cdn.retainblog.top/blog/image-20220709214033659.png)
+
+![image-20220709214124387](http://cdn.retainblog.top/blog/image-20220709214124387.png)
+
+![image-20220709214210028](http://cdn.retainblog.top/blog/image-20220709214210028.png)
+
+![image-20220709214304368](http://cdn.retainblog.top/blog/image-20220709214304368.png)
+
+![image-20220709214338000](http://cdn.retainblog.top/blog/image-20220709214338000.png)
+
+![image-20220709214406804](http://cdn.retainblog.top/blog/image-20220709214406804.png)
+
+![image-20220709214537109](http://cdn.retainblog.top/blog/image-20220709214537109.png)
+
+![image-20220709214552394](http://cdn.retainblog.top/blog/image-20220709214552394.png)
+
+![image-20220709214610850](http://cdn.retainblog.top/blog/image-20220709214610850.png)
 
 #### 功能
 - 已实现功能：
