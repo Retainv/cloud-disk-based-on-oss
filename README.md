@@ -1,4 +1,4 @@
-# network-disk
+# cloud-disk-based-on-oss
 
 #### 介绍
 结合阿里云OSS对象存储，实现的公有云网盘（仅供个人学习使用），目前个人自用体验良好。
